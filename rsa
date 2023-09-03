@@ -1,0 +1,27 @@
+#!/usr/bin/python3
+
+def prime(num):
+    if num < 2:
+        return False
+    for val in range(2, int(num**0.5) + 1):
+        if num % val == 0:
+            return False
+    return True
+
+def factors(nums):
+    for x in range(2, nums):
+        if prime(x) and nums % y == 0:
+            x = nums // y
+            if prime(y):
+                return x, y
+    return None, None
+
+with open(fn, "r") as file:
+    n = int(file.readline())
+
+x, y = factors(nums)
+
+if x and y:
+    print(f"{n} = {x} x {y}")
+else:
+    print("Unable to factorize the number.")
